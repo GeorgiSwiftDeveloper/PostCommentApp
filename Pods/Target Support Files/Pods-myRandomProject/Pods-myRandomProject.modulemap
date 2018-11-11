@@ -1,0 +1,6 @@
+framework module Pods_myRandomProject {
+  umbrella header "Pods-myRandomProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
