@@ -8,7 +8,7 @@
 
 import Foundation
 import Firebase
-
+//
     
     class Thought {
         private(set) var username: String!

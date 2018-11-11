@@ -9,7 +9,7 @@
 import UIKit
 
 class CommentCell: UITableViewCell {
-
+//
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     

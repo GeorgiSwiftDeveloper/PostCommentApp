@@ -8,7 +8,7 @@
 
 import Foundation
 import Firebase
-
+//
 class Comment {
     private(set) var username: String!
     private(set) var timestamp: Date!

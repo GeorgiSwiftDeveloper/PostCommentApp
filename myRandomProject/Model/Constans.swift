@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+//
 let POST_REF = "thoughts"
 let USER_REF = "user"
 //

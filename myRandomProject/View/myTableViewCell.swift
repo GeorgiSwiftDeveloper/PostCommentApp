@@ -11,7 +11,7 @@ import Firebase
 class myTableViewCell: UITableViewCell {
 //tableviewcellsdfdsf
     @IBOutlet weak var userNameLbl: UILabel!
-    
+    //
     @IBOutlet weak var timestampLbl: UILabel!
     @IBOutlet weak var postLbl: UILabel!
     @IBOutlet weak var likeImage: UIImageView!

@@ -16,7 +16,7 @@ enum postCategory : String {
     case popular = "popular"
 }
 
-
+//
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var segmentControll: UISegmentedControl!

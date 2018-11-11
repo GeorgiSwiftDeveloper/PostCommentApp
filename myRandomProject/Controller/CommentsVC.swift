@@ -37,7 +37,7 @@ class CommentsVC: UIViewController {
         }
         
     }
-    //MARK: Displaying comments on the tableview
+    /////MARK: Displaying comments on the tableview
     override func viewDidAppear(_ animated: Bool) {
         commentListener = firestore.collection("Post").document(self.thought.documentId).collection("comments").addSnapshotListener({ (snapshot, error) in
             guard let snapshot = snapshot else {

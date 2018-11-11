@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 class LogInVC: UIViewController {
-
+//
     @IBOutlet weak var emailTxt: Service!
     @IBOutlet weak var passwordTxt: Service!
     

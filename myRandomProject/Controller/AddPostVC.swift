@@ -58,7 +58,7 @@ class AddPostVC: UIViewController, UITextViewDelegate {
             selectedCategory = postCategory.crazy.rawValue
         }
     }
-    //MARK:  Make database entry on Firestore
+   // //MARK:  Make database entry on Firestore
     @IBAction func buttonPressedAction(_ sender: UIButton) {
         
         guard let username = userNameTxt.text else {return}
