@@ -23,3 +23,5 @@ let DATE_CREATED = "datecreated"
 
 //
 let COMMENT_TXT = "commentTxt"
+
+let USER_ID = "userId"

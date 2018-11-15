@@ -23,7 +23,7 @@ class CreateUserVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      myButton()
+                myButton()
     }
     
     func myButton() {

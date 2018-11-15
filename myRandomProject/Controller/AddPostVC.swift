@@ -23,7 +23,6 @@ class AddPostVC: UIViewController, UITextViewDelegate {
 
     
  private   var selectedCategory = postCategory.funny.rawValue
-//    private var selected
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonPost.layer.cornerRadius = 4
@@ -58,7 +57,7 @@ class AddPostVC: UIViewController, UITextViewDelegate {
             selectedCategory = postCategory.crazy.rawValue
         }
     }
-   // //MARK:  Make database entry on Firestore
+   // //MARK:  Make database entry on Firestore send data 
     @IBAction func buttonPressedAction(_ sender: UIButton) {
         
         guard let username = userNameTxt.text else {return}
@@ -68,7 +67,8 @@ class AddPostVC: UIViewController, UITextViewDelegate {
             NUM_LIKES: 0,
             POST_TXT: postTxt.text,
             TIMESTAMP: FieldValue.serverTimestamp(),
-            USERNAME: username
+            USERNAME: username,
+            USER_ID: Auth.auth().currentUser?.uid  ?? ""
         ]) { (error) in
             if let err = error {
                 print("error adding document")

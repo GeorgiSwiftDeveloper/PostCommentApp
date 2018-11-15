@@ -11,6 +11,7 @@
 		6A3BC4392191802F00CE6866 /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3BC4382191802F00CE6866 /* Constans.swift */; };
 		6A3BC43D21920A6C00CE6866 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3BC43C21920A6C00CE6866 /* Post.swift */; };
 		6A3BC43F21920C0900CE6866 /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3BC43E21920C0900CE6866 /* myTableViewCell.swift */; };
+		6A55EAD4219A857E00E739B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A55EAD3219A857D00E739B5 /* GoogleService-Info.plist */; };
 		6A7613AC2193981D00E9F167 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7613AB2193981D00E9F167 /* Service.swift */; };
 		6A7613AE219398E200E9F167 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7613AD219398E200E9F167 /* ServiceView.swift */; };
 		6A7613B02193993F00E9F167 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7613AF2193993F00E9F167 /* LogInVC.swift */; };
@@ -19,13 +20,14 @@
 		6A7613B62194158D00E9F167 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7613B52194158C00E9F167 /* CommentsVC.swift */; };
 		6A7613B82194BEB300E9F167 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7613B72194BEB300E9F167 /* CommentCell.swift */; };
 		6A7613BA2194BF7B00E9F167 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7613B92194BF7B00E9F167 /* Comment.swift */; };
+		6A9137A3219B90510024C8A4 /* UpdateCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9137A2219B90510024C8A4 /* UpdateCommentVC.swift */; };
 		6AE5D98C2190EE1200C24B49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5D98B2190EE1200C24B49 /* AppDelegate.swift */; };
 		6AE5D98E2190EE1200C24B49 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5D98D2190EE1200C24B49 /* MainVC.swift */; };
 		6AE5D9912190EE1200C24B49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5D98F2190EE1200C24B49 /* Main.storyboard */; };
 		6AE5D9932190EE1600C24B49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5D9922190EE1600C24B49 /* Assets.xcassets */; };
 		6AE5D9962190EE1600C24B49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5D9942190EE1600C24B49 /* LaunchScreen.storyboard */; };
 		6AE5D99E2190F0BC00C24B49 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5D99D2190F0BC00C24B49 /* AddPostVC.swift */; };
-		6AE5D9A32190F9C400C24B49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5D9A22190F9C400C24B49 /* GoogleService-Info.plist */; };
+		6AF349A821995CC0008A4A1D /* ServiceKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF349A721995CC0008A4A1D /* ServiceKeyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,7 @@
 		6A3BC4382191802F00CE6866 /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		6A3BC43C21920A6C00CE6866 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		6A3BC43E21920C0900CE6866 /* myTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableViewCell.swift; sourceTree = "<group>"; };
+		6A55EAD3219A857D00E739B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6A7613AB2193981D00E9F167 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		6A7613AD219398E200E9F167 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
 		6A7613AF2193993F00E9F167 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		6A7613B52194158C00E9F167 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		6A7613B72194BEB300E9F167 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		6A7613B92194BF7B00E9F167 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		6A9137A2219B90510024C8A4 /* UpdateCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCommentVC.swift; sourceTree = "<group>"; };
 		6AE5D9882190EE1200C24B49 /* myRandomProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myRandomProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE5D98B2190EE1200C24B49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AE5D98D2190EE1200C24B49 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -50,7 +54,7 @@
 		6AE5D9952190EE1600C24B49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AE5D9972190EE1600C24B49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AE5D99D2190F0BC00C24B49 /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
-		6AE5D9A22190F9C400C24B49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6AF349A721995CC0008A4A1D /* ServiceKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceKeyboard.swift; sourceTree = "<group>"; };
 		B961F19165D69A55B2A1E7FC /* Pods-myRandomProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRandomProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-myRandomProject/Pods-myRandomProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,7 +99,7 @@
 				6AE5D98F2190EE1200C24B49 /* Main.storyboard */,
 				6AE5D9942190EE1600C24B49 /* LaunchScreen.storyboard */,
 				6AE5D9972190EE1600C24B49 /* Info.plist */,
-				6AE5D9A22190F9C400C24B49 /* GoogleService-Info.plist */,
+				6A55EAD3219A857D00E739B5 /* GoogleService-Info.plist */,
 			);
 			path = myRandomProject;
 			sourceTree = "<group>";
@@ -103,11 +107,12 @@
 		6AE5D99F2190F45D00C24B49 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6A7613B321939D0B00E9F167 /* CreateUserVC.swift */,
+				6A7613AF2193993F00E9F167 /* LogInVC.swift */,
 				6AE5D99D2190F0BC00C24B49 /* AddPostVC.swift */,
 				6AE5D98D2190EE1200C24B49 /* MainVC.swift */,
-				6A7613AF2193993F00E9F167 /* LogInVC.swift */,
-				6A7613B321939D0B00E9F167 /* CreateUserVC.swift */,
 				6A7613B52194158C00E9F167 /* CommentsVC.swift */,
+				6A9137A2219B90510024C8A4 /* UpdateCommentVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -115,11 +120,12 @@
 		6AE5D9A02190F46300C24B49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6A3BC43E21920C0900CE6866 /* myTableViewCell.swift */,
+				6A7613B72194BEB300E9F167 /* CommentCell.swift */,
+				6AF349A721995CC0008A4A1D /* ServiceKeyboard.swift */,
 				6A7613AB2193981D00E9F167 /* Service.swift */,
 				6A7613AD219398E200E9F167 /* ServiceView.swift */,
 				6A7613B121939C6B00E9F167 /* ServiceViewSecond.swift */,
-				6A3BC43E21920C0900CE6866 /* myTableViewCell.swift */,
-				6A7613B72194BEB300E9F167 /* CommentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,10 +217,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A55EAD4219A857E00E739B5 /* GoogleService-Info.plist in Resources */,
 				6AE5D9962190EE1600C24B49 /* LaunchScreen.storyboard in Resources */,
 				6AE5D9932190EE1600C24B49 /* Assets.xcassets in Resources */,
 				6AE5D9912190EE1200C24B49 /* Main.storyboard in Resources */,
-				6AE5D9A32190F9C400C24B49 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,10 +300,12 @@
 				6A7613AC2193981D00E9F167 /* Service.swift in Sources */,
 				6AE5D99E2190F0BC00C24B49 /* AddPostVC.swift in Sources */,
 				6A7613B421939D0B00E9F167 /* CreateUserVC.swift in Sources */,
+				6AF349A821995CC0008A4A1D /* ServiceKeyboard.swift in Sources */,
 				6A3BC4392191802F00CE6866 /* Constans.swift in Sources */,
 				6A3BC43D21920A6C00CE6866 /* Post.swift in Sources */,
 				6AE5D98C2190EE1200C24B49 /* AppDelegate.swift in Sources */,
 				6A3BC43F21920C0900CE6866 /* myTableViewCell.swift in Sources */,
+				6A9137A3219B90510024C8A4 /* UpdateCommentVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4XLSSR63Y5;
+				DEVELOPMENT_TEAM = CVH85UHVWD;
 				INFOPLIST_FILE = myRandomProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -464,7 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4XLSSR63Y5;
+				DEVELOPMENT_TEAM = CVH85UHVWD;
 				INFOPLIST_FILE = myRandomProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -13,12 +13,16 @@ class Comment {
     private(set) var username: String!
     private(set) var timestamp: Date!
     private(set) var comentTxt: String!
+    private(set) var documentId: String!
+    private(set) var userId: String!
  
     
-    init(username:String,timestamp:Date,comentTxt: String) {
+    init(username:String,timestamp:Date,comentTxt: String, documentId: String, userId: String) {
         self.username = username
         self.timestamp = timestamp
         self.comentTxt = comentTxt
+        self.documentId = documentId
+        self.userId = userId
     }
     
     
@@ -32,7 +36,9 @@ class Comment {
             let username = data[USERNAME] as? String ?? "Any"
             let teimestamp = data[TIMESTAMP] as? Date ?? Date()
             let commentTxt = data[COMMENT_TXT] as? String ?? ""
-            let newComment = Comment(username: username, timestamp: teimestamp, comentTxt: commentTxt)
+            let documentId = documents.documentID
+            let userId = data[USER_ID] as? String ?? ""
+            let newComment = Comment(username: username, timestamp: teimestamp, comentTxt: commentTxt, documentId: documentId, userId: userId)
 
             comments.append(newComment)
         }

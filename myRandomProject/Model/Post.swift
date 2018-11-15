@@ -8,8 +8,7 @@
 
 import Foundation
 import Firebase
-//
-    
+
     class Thought {
         private(set) var username: String!
         private(set) var timestamp: Date!
@@ -17,14 +16,16 @@ import Firebase
         private(set) var numLikes: Int!
         private(set) var numComents: Int!
         private(set) var documentId: String!
+        private(set) var userId: String!
         
-        init(username:String,timestamp:Date,postTxt: String, numLikes: Int, numComents: Int, documentId: String) {
+        init(username:String,timestamp:Date,postTxt: String, numLikes: Int, numComents: Int, documentId: String, userId: String) {
             self.username = username
             self.timestamp = timestamp
             self.postTxt = postTxt
             self.numLikes = numLikes
             self.numComents = numComents
             self.documentId = documentId
+            self.userId = userId
         }
         //MARK:  Take all data from Firestore and pass it on the init
         
@@ -39,8 +40,9 @@ import Firebase
                 let numlikes = data[NUM_LIKES] as? Int ?? 0
                 let numcomments = data[NUM_COMMENTS] as? Int ?? 0
                 let documentsId = documents.documentID
+                let userId = data[USER_ID] as? String ?? ""
                 
-                let newDoc = Thought(username: username, timestamp: teimestamp, postTxt: postText, numLikes: numlikes, numComents: numcomments, documentId: documentsId)
+                let newDoc = Thought(username: username, timestamp: teimestamp, postTxt: postText, numLikes: numlikes, numComents: numcomments, documentId: documentsId, userId: userId)
                 //MARK: Pass constant on the array of Thought
                thoughts.append(newDoc)
             }

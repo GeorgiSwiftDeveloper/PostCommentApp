@@ -9,25 +9,30 @@
 import UIKit
 import Firebase
 
+//data for selectedSegment
 enum postCategory : String {
     case funny = "funny"
     case serious = "serious"
     case crazy = "crazy"
     case popular = "popular"
 }
-
-//
-class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ThoughtDelegate {
+    
+    
     
     @IBOutlet weak var segmentControll: UISegmentedControl!
+    
     @IBOutlet weak var myTableView: UITableView!
     
     
     
     private var thoughts = [Thought]()
+    
     private var thoughtsCollectionREF: CollectionReference!
     private var thoughtsListener: ListenerRegistration!
+    
     private var selectedCategory =  postCategory.funny.rawValue
+    
     private var handler: AuthStateDidChangeListenerHandle?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +40,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         myTableView.delegate = self
         myTableView.dataSource = self
         
+        
+        //TableView estiamte Height automaticly
         myTableView.estimatedRowHeight = 80
         myTableView.rowHeight = UITableView.automaticDimension
    
+        
+        
         thoughtsCollectionREF =  Firestore.firestore().collection("Post")
         
     }
@@ -63,7 +72,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         })
     }
     
-    
+    //Curent user logOut func
     @IBAction func logOutTapped(_ sender: Any) {
         do{
            try Auth.auth().signOut()
@@ -71,6 +80,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("Error cant logout")
         }
     }
+    
+    
     @IBAction func selectedCategory(_ sender: Any) {
         switch segmentControll.selectedSegmentIndex {
         case 0:
@@ -86,10 +97,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setListener()
         
     }
-    //MARK: Fetching data from Firestore
-  
     
-    //MARK: Fetch data from Firestore
+    //MARK: Fetch data from Firestore order by count of likes
         func setListener() {
             if selectedCategory == postCategory.popular.rawValue {
                 thoughtsListener =  thoughtsCollectionREF
@@ -105,6 +114,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         }
                 }
             }else {
+                //MARK: Fetch data from Firestore  by category
                 thoughtsListener =  thoughtsCollectionREF
                     .whereField(CATEGORY, isEqualTo: selectedCategory)
                     .order(by: TIMESTAMP, descending: true)
@@ -124,6 +134,45 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
  
     }
     
+    //Delete and editing  Posts userId  function
+    
+    func thoughtOptionsTapped(thought: Thought) {
+       let alert = UIAlertController(title: "Delete Post", message: "Do  u wont to delete Post", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .default) { (action) in
+            //delete post and Comments together
+            self.delete(collection: Firestore.firestore().collection("Post").document(thought.documentId).collection("comments"), batchSize: 10)
+            Firestore.firestore().collection("Post").document(thought.documentId).delete(completion: { (error) in
+                if let err = error {
+                    print("Could not delete Post\(err.localizedDescription)")
+                }else {
+                    alert.dismiss(animated: true, completion: nil)
+                }
+            })
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+ 
+    //firestore delete subcollection swift
+    func delete(collection: CollectionReference, batchSize: Int = 100) {
+        // Limit query to avoid out-of-memory errors on large collections.
+        // When deleting a collection guaranteed to fit in memory, batching can be avoided entirely.
+        collection.limit(to: batchSize).getDocuments { (docset, error) in
+            // An error occurred.
+            let docset = docset
+            
+            let batch = collection.firestore.batch()
+            docset?.documents.forEach { batch.deleteDocument($0.reference) }
+            
+            batch.commit {_ in
+                self.delete(collection: collection, batchSize: batchSize)
+            }
+        }
+    }
     //MARK: TableView  Protocols
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
@@ -135,7 +184,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? myTableViewCell
-        cell!.configureCell(thought: thoughts[indexPath.row])
+        cell!.configureCell(thought: thoughts[indexPath.row], delegate: self)
         
         return cell!
     }
