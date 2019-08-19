@@ -16,7 +16,6 @@ protocol ThoughtDelegate {
 class myTableViewCell: UITableViewCell {
 
     @IBOutlet weak var userNameLbl: UILabel!
-    
     @IBOutlet weak var timestampLbl: UILabel!
     @IBOutlet weak var postLbl: UILabel!
     @IBOutlet weak var likeImage: UIImageView!

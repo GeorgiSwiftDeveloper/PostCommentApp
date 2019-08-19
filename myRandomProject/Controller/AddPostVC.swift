@@ -23,6 +23,9 @@ class AddPostVC: UIViewController, UITextViewDelegate {
 
     
  private   var selectedCategory = postCategory.funny.rawValue
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonPost.layer.cornerRadius = 4
@@ -57,7 +60,7 @@ class AddPostVC: UIViewController, UITextViewDelegate {
             selectedCategory = postCategory.crazy.rawValue
         }
     }
-   // //MARK:  Make database entry on Firestore send data 
+   // //MARK:  Make database entry on Firestore send data to the database
     @IBAction func buttonPressedAction(_ sender: UIButton) {
         
         guard let username = userNameTxt.text else {return}

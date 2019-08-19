@@ -72,20 +72,22 @@ class CommentsVC: UIViewController {
         firestore.runTransaction({ (transaction, errorPointer) -> Any? in
             let thoughtDocument: DocumentSnapshot
             do{
+                //Get documentId collection
                 try thoughtDocument = transaction.getDocument(Firestore.firestore().collection("Post").document(self.thought.documentId))
             }catch{
                 
                print("error")
                 return nil
             }
-            
+            //MARK: GET NUN_COMMENTS and + 1 when comments added
             guard let oldNumComments = thoughtDocument.data()![NUM_COMMENTS] as? Int else {return nil}
             
             transaction.updateData([NUM_COMMENTS : oldNumComments + 1], forDocument: self.thoughtRef)
             
-            //Make collection "comments" with selected documentId and  add data
+            //Create new collection on documentId collection
             let newCommentRef = self.firestore.collection("Post").document(self.thought.documentId).collection("comments").document()
             
+            //Make collection "comments" with selected documentId and pass data to the Database
             transaction.setData([
                 COMMENT_TXT : commentTxt,
                 TIMESTAMP: FieldValue.serverTimestamp(),
@@ -106,10 +108,13 @@ class CommentsVC: UIViewController {
 
 }
 
+//MAKR: TableViewDelegate
+
 extension CommentsVC: UITableViewDelegate, UITableViewDataSource, commentDelgate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if  let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? CommentCell  {
@@ -122,9 +127,10 @@ extension CommentsVC: UITableViewDelegate, UITableViewDataSource, commentDelgate
     }
     
     
-    
     //Delete and edit comments   function
     func commentOptionsTapped(comment: Comment) {
+        print(comment.username)
+        //UIAlertController for delete and edit
         let alert = UIAlertController(title: "Edit comment", message: "You can edit or delete ", preferredStyle: .actionSheet)
         
         let actionDelete = UIAlertAction(title: "Delete comment", style: .default) { (deleteaction) in
@@ -137,7 +143,7 @@ extension CommentsVC: UITableViewDelegate, UITableViewDataSource, commentDelgate
                     print("error")
                     return nil
                 }
-                
+                //MARK: GET NUN_COMMENTS and - 1 when comments deleted
                 guard let oldNumComments = thoughtDocument.data()![NUM_COMMENTS] as? Int else {return nil}
                 
                 transaction.updateData([NUM_COMMENTS : oldNumComments - 1], forDocument: self.thoughtRef)
@@ -166,8 +172,7 @@ extension CommentsVC: UITableViewDelegate, UITableViewDataSource, commentDelgate
         present(alert, animated: true, completion: nil)
     }
     
-    //MARK:Go to the updateVC 
-    
+    //MARK:Go to the updateVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? UpdateCommentVC {
             if let commentData = sender as? (comment: Comment, thought: Thought) {

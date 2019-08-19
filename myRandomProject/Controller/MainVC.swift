@@ -141,6 +141,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Thou
         let deleteAction = UIAlertAction(title: "Delete", style: .default) { (action) in
             //delete post and Comments together
             self.delete(collection: Firestore.firestore().collection("Post").document(thought.documentId).collection("comments"), batchSize: 10)
+            
+            //Post delete
             Firestore.firestore().collection("Post").document(thought.documentId).delete(completion: { (error) in
                 if let err = error {
                     print("Could not delete Post\(err.localizedDescription)")
@@ -157,7 +159,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Thou
         present(alert, animated: true, completion: nil)
     }
  
-    //firestore delete subcollection swift
+    //Firestore delete subcollection swift code
     func delete(collection: CollectionReference, batchSize: Int = 100) {
         // Limit query to avoid out-of-memory errors on large collections.
         // When deleting a collection guaranteed to fit in memory, batching can be avoided entirely.

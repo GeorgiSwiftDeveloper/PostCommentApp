@@ -29,7 +29,7 @@ class UpdateCommentVC: UIViewController {
     
 
     @IBAction func updateTapped(_ sender: Any) {
-        Firestore.firestore().collection("Post").document(commentData.thought.documentId).collection("comments").document(commentData.comment.documentId).updateData([COMMENT_TXT : myCommentTxt]) { (error) in
+        Firestore.firestore().collection("Post").document(commentData.thought.documentId).collection("comments").document(commentData.comment.documentId).updateData([COMMENT_TXT : myCommentTxt.text]) { (error) in
             if let error = error {
                 print("Unable to update comment: \(error.localizedDescription)")
             }else {
